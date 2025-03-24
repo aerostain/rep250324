@@ -23,7 +23,8 @@ getOption("width")
 # Directorios
 dir.create("Rdownloads")
 file.create("test.R")
-file.create("rem.md")
+file.create("notes.md")
+file.create("readme.md")
 file.create(".gitignore")
 
 # Procesamiento
