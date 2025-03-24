@@ -29,6 +29,13 @@ file.create(".gitignore")
 # Procesamiento
 
 p_load(palmerpenguins)
+p_load(
+  tidyverse,
+  magrittr,
+  expss,
+  ggdark,
+  palmerpenguins
+)
 
 # Modelamiento
 
@@ -41,5 +48,8 @@ mpg %>%
   dark_theme_grey()
 
 penguins %>% head()
+
+mpg %>%
+  filter(displ == 1.6)
 
 #
