@@ -26,6 +26,8 @@ file.create("test.R")
 file.create("notes.md")
 file.create("readme.md")
 file.create(".gitignore")
+dir()
+file.remove("rem.md")
 
 # Procesamiento
 
@@ -53,4 +55,32 @@ penguins %>% head()
 mpg %>%
   filter(displ == 1.6)
 
-#
+# Usar R y C++
+install.packages("Rcpp")
+library(Rcpp)
+
+## Escribiendo una funcion C++
+cppFunction("
+int sumaC(int a, int b) {
+  return a + b;
+}
+")
+
+sumaC(7, 7)
+
+## Usando una función C++ desde archivo externo
+file.create("funCpp.cpp")
+### Cargar y Compilar archivo .cpp en R
+sourceCpp("funCpp.cpp")
+sumaCPP(7, 7)
+
+# Usando Armadillo
+install.packages("RcppArmadillo")
+library(RcppArmadillo)
+file.create("funMat.cpp")
+sourceCpp("funMat.cpp")
+
+m_a <- matrix(c(1, 2, 3, 4), nrow = 2)
+m_b <- matrix(c(5, 6, 7, 8), nrow = 2)
+resultado <- multiplicar_matrices(m_a, m_b)
+print(resultado)
